@@ -104,9 +104,9 @@ stiffness = args.stiffness
 ########################################################
 
 # Constants
-RESOLUTION_LEVELS = [3.0, 2.0, 1.0, 0.6666666666666666, 0.3333333333333333]
-VOXEL_SKIP = [1, 1, 1, 1, 2]
-NONLIN_CP_SPACING = [4, 4, 4, 6, 6]
+RESOLUTION_LEVELS = [3.0, 2.0, 1.0, 0.6666666666666666, 0.3333333333333333, 0.300]
+VOXEL_SKIP = [1, 1, 1, 1, 1, 1]
+NONLIN_CP_SPACING = [4, 4, 4, 6, 6, 6]
 dtype = torch.float32
 SET_BG_TO_CSF = True # True = median of ventricles -> it seems much better than 0!
 
@@ -120,10 +120,10 @@ TOL = 1e-9
 LR = 10.0
 line_search = args.line_search
 if line_search=='Armijo':
-    STEPS = [1000, 800, 600, 400, 200] # we do EM every 25 of these
-    # STEPS = [10, 10, 5] # Wolfe is slowerwe do EM every 25 of these
+    STEPS = [1000, 800, 600, 400, 200, 200] # we do EM every 25 of these
+    # STEPS = [10, 10, 5] # Wolfe is slowerwe do EM every 25 of these 
 elif line_search == 'Wolfe':
-    STEPS = [500, 400, 300, 200, 100] # Wolfe is slowerwe do EM every 25 of these
+    STEPS = [500, 400, 300, 200, 100, 100] # Wolfe is slowerwe do EM every 25 of these
 else:
     raise Exception('Line search must be Wolfe or Armijo')
 
